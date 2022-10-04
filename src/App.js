@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+
+import "./App.css";
+import Login from "./auth/login";
+import Register from "./auth/register";
+import Header from "./components/Layout/Header";
 
 function App() {
+  const [city, setCity] = useState("");
+
+  const hanldeMicro = async () => {
+    const cityName = city.replace(/\s/g, "");
+
+    const res = await axios({
+      method: "GET",
+      url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=ec36e374709a52512f4459ac354307d8`,
+    });
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Routes>
+        <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} />
+      </Routes>
     </div>
   );
 }
