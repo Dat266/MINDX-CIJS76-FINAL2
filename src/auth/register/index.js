@@ -8,7 +8,7 @@ const Register = () => {
           <div className="col-md-9 col-lg-6 col-xl-5">
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-              class="img-fluid"
+              className="img-fluid"
               alt="Phone image"
             />
           </div>
