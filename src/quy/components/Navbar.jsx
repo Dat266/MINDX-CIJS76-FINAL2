@@ -38,7 +38,14 @@ export const Navbar = () => {
       <div className="nav-item">
         <i class="fa-solid fa-cloud iconnav"></i>
 
-        <div className="food-text">Weather</div>
+        <div
+          className="food-text"
+          onClick={() => {
+            navigate("/weather");
+          }}
+        >
+          Weather
+        </div>
       </div>
     </div>
   );
