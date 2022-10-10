@@ -6,11 +6,9 @@ import { TdeeProvider } from "./quy/context/Context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Router>
-    <React.StrictMode>
-      <TdeeProvider>
-        <App />
-      </TdeeProvider>
-    </React.StrictMode>
-  </Router>
+	<Router>
+		<TdeeProvider>
+			<App />
+		</TdeeProvider>
+	</Router>
 );
