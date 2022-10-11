@@ -12,7 +12,7 @@ export const Navbar = () => {
           navigate("/");
         }}
       >
-        <i class="fa-solid fa-house iconnav"></i>
+        <i className="fa-solid fa-house iconnav"></i>
         <div className="food-text">Home</div>
       </div>
       <div className="wall"></div>
@@ -22,7 +22,7 @@ export const Navbar = () => {
           navigate("/tdee");
         }}
       >
-        <i class="fa-solid fa-dumbbell iconnav"></i>
+        <i className="fa-solid fa-dumbbell iconnav"></i>
 
         <div className="food-text">TDEE</div>
       </div>
@@ -41,9 +41,16 @@ export const Navbar = () => {
       <div className="wall"></div>
 
       <div className="nav-item">
-        <i class="fa-solid fa-cloud iconnav"></i>
+        <i className="fa-solid fa-cloud iconnav"></i>
 
-        <div className="food-text">Weather</div>
+        <div
+          className="food-text"
+          onClick={() => {
+            navigate("/weather");
+          }}
+        >
+          Weather
+        </div>
       </div>
     </div>
   );

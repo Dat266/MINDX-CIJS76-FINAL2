@@ -3,9 +3,7 @@ import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
 import "./App.css";
-import Login from "./auth/login";
-import Register from "./auth/register";
-import Header from "./components/Layout/Header";
+import Weather from "./components/Weather";
 import { Home } from "./quy/components/Home";
 import { Navbar } from "./quy/components/Navbar";
 import { Tdee } from "./quy/components/Tdee";
