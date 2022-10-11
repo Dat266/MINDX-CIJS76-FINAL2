@@ -329,7 +329,11 @@ export const Calo = () => {
         </div>
         {menu
           .filter((item) => {
-            return item.text.indexOf(searchfood.trim()) !== -1;
+            return (
+              item.text
+                .toLowerCase()
+                .indexOf(searchfood.trim().toLowerCase()) !== -1
+            );
           })
           .map((item) => (
             <Fooditem
