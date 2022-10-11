@@ -9,8 +9,13 @@ import Header from "./components/Layout/Header";
 import { Home } from "./quy/components/Home";
 import { Navbar } from "./quy/components/Navbar";
 import { Tdee } from "./quy/components/Tdee";
-
+import { Signin } from "./quy/components/Signin";
+import { Signup } from "./quy/components/Signup";
+import { useContext } from "react";
+import { TdeeContext } from "./quy/context/Context";
+import { Calo } from "./quy/components/Calo";
 function App() {
+  const tdee = useContext(TdeeContext);
   const [city, setCity] = useState("");
 
   const hanldeMicro = async () => {
@@ -25,11 +30,14 @@ function App() {
   return (
     <div className="App">
       {/* <Header /> */}
-      <Navbar />
+      {tdee.logged && <Navbar />}
+      <Signin />
+      <Signup />
 
       <Routes>
-        <Route path="/tdee" element={<Tdee />} />
         <Route path="/" element={<Home />} />
+        <Route path="/tdee" element={<Tdee />} />
+        <Route path="/calo" element={<Calo />} />
         <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} />
       </Routes>

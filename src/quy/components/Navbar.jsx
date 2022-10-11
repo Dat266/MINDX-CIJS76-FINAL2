@@ -28,7 +28,12 @@ export const Navbar = () => {
       </div>
       <div className="wall"></div>
 
-      <div className="nav-item">
+      <div
+        className="nav-item"
+        onClick={() => {
+          navigate("/calo");
+        }}
+      >
         <i class="fa-solid fa-bowl-food iconnav"></i>
 
         <div className="food-text">Calo</div>

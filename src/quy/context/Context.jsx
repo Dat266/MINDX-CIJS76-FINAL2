@@ -17,6 +17,90 @@ function TdeeProvider({ children }) {
   const MIN_CAL_FEMALE = 1200;
   const MIN_CAL_MALE = 1500;
   const [safeMinCalories, setSafeMinCalories] = useState(0);
+  const [signindisplay, setSignindisplay] = useState("block");
+  const [signupdisplay, setSignupdisplay] = useState("");
+  const [emailsigninvalue, setEmailsigninvalue] = useState("block");
+  const [passwordsigninvalue, setPasswordsigninvalue] = useState("block");
+  const [emailsignupvalue, setEmailsignupvalue] = useState("");
+  const [passwordsignupvalue, setPasswordsignupvalue] = useState("");
+  const [message, setMessage] = useState("");
+  const [messagedisplay, setMessagedisplay] = useState("none");
+  const [messagecolor, setMessagecolor] = useState("");
+  const [logged, setLogged] = useState(false);
+
+  const handleEmailSigninValueChange = (e) => {
+    setEmailsigninvalue(e.target.value);
+  };
+  const handleEmailSignupValueChange = (e) => {
+    setEmailsignupvalue(e.target.value);
+  };
+  const handlePasswordSigninValueChange = (e) => {
+    setPasswordsigninvalue(e.target.value);
+  };
+  const handlePasswordSignupValueChange = (e) => {
+    setPasswordsignupvalue(e.target.value);
+  };
+  const Signupsubbtn = () => {
+    setSignupdisplay("block");
+    setSignindisplay("none");
+  };
+  const Signinsubbtn = () => {
+    setSignupdisplay("none");
+    setSignindisplay("block");
+  };
+  const Signupbtn = () => {
+    console.log("signup");
+
+    var user = {
+      email: emailsignupvalue,
+      password: passwordsignupvalue,
+    };
+    var json = JSON.stringify(user);
+    console.log(json);
+    localStorage.setItem(emailsignupvalue, json);
+    setMessagedisplay("block");
+    setMessage("Sign Up Success");
+    setMessagecolor("rgb(76, 218, 76)");
+    setEmailsignupvalue("");
+    setPasswordsignupvalue("");
+    setMessagedisplay("block");
+    setMessage("Sign Up Success");
+    setMessagecolor("rgb(76, 218, 76)");
+
+    setTimeout(() => {
+      setMessagedisplay("none");
+      setSignupdisplay("none");
+      setSignindisplay("block");
+    }, 500);
+  };
+  const Signinbtn = () => {
+    var user1 = localStorage.getItem(emailsigninvalue);
+    console.log(emailsigninvalue);
+    var data = JSON.parse(user1);
+    if (
+      !user1 ||
+      emailsigninvalue !== data.email ||
+      passwordsigninvalue !== data.password
+    ) {
+      setMessagedisplay("block");
+      setMessage("Invalid username/password combination");
+      setMessagecolor("red");
+    } else if (
+      emailsigninvalue === data.email &&
+      passwordsigninvalue === data.password
+    ) {
+      setMessagedisplay("block");
+      setMessage("Logged in successfully");
+      setMessagecolor("rgb(76, 218, 76)");
+      setEmailsigninvalue("");
+      setPasswordsigninvalue("");
+
+      setTimeout(() => {
+        setSignindisplay("none");
+        setLogged(true);
+      }, 1000);
+    }
+  };
   const value = {
     submit,
     setSubmit,
@@ -46,6 +130,29 @@ function TdeeProvider({ children }) {
     setBmi,
     bmirange,
     setBmirange,
+    signindisplay,
+    setSignindisplay,
+    signupdisplay,
+    setSignupdisplay,
+    handleEmailSigninValueChange,
+    handleEmailSignupValueChange,
+    handlePasswordSigninValueChange,
+    handlePasswordSignupValueChange,
+    emailsigninvalue,
+    passwordsigninvalue,
+    emailsignupvalue,
+    passwordsignupvalue,
+    message,
+    setMessage,
+    messagedisplay,
+    setMessagedisplay,
+    messagecolor,
+    setMessagecolor,
+    Signupbtn,
+    Signinbtn,
+    Signinsubbtn,
+    Signupsubbtn,
+    logged,
   };
   return <TdeeContext.Provider value={value}>{children}</TdeeContext.Provider>;
 }
