@@ -1,0 +1,69 @@
+.signup-container{
+    display: none;
+    position: absolute;
+    width: 400px;
+    height: 480px;
+    background-color: rgb(0 0 0 / 74%);
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    
+}
+.signup-item > input{
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+.signup-input{
+    width: 300px;
+    background-color: transparent;
+    height: 40px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 40px;
+    outline: none;
+    border: none;
+    border-bottom:2px solid #ff7200;
+}
+.message{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: bold;
+}
+/* signup-end */
+.message-error{
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    display: block;
+}
+
+.message-success{
+    color: rgb(76, 218, 76);
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: bold;
+    display: block;
+}
+.message-success.message-hidden{
+    display: none;
+}
+.header__signupin{
+    /* display: none; */
+    color: #fff;
+    margin-right: 40px;
+    font-weight: bold;
+
+}
+.header__signupin i{
+    color: #000;
+    font-size: 18px;
+    margin-right: 5px;
+  
+    
+}
