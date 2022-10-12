@@ -29,8 +29,8 @@ body {
 
 .form-label {
 	position: absolute;
-	top: 50%;
-	left: 15px;
+	top: 7%;
+	left: 2.6rem;
 	color: rgb(173, 173, 173);
 	pointer-events: none;
 	user-select: none;
@@ -49,7 +49,9 @@ body {
 	width: 30vw;
 	height: 70vh;
 	margin: 0 auto;
-	padding-top: 5rem;
+	padding-top: 6rem;
+	position: relative;
+	padding: 1rem;
 }
 
 .bi-search,
@@ -57,17 +59,20 @@ body {
 	cursor: pointer;
 }
 
+.bi-mic,
 .bi-search {
 	position: absolute;
-	right: 60px;
-	top: 50%;
+	top: 7%;
+}
+
+.bi-search {
+	right: 80px;
 }
 
 .bi-mic {
-	position: absolute;
-	right: 20px;
-	top: 50%;
+	right: 50px;
 }
+
 .bi-search:hover,
 .bi-mic:hover {
 	color: rgb(255, 0, 0);
@@ -78,17 +83,27 @@ body {
 	margin-top: 2rem;
 }
 
-.content {
-	position: relative;
-}
-
 .vanta {
-	opacity: 0.4;
+	opacity: 1;
 	position: absolute;
 	width: 100%;
 	height: 100%;
 }
 
-h1 {
+.weather-main h1 {
 	color: rgb(228, 21, 21);
+}
+
+.weather-main p {
+	color: black;
+}
+
+#form {
+	background-color: #fff;
+	position: absolute;
+	top: 4rem;
+	right: 0;
+	padding: 2rem;
+	border-radius: 0.7rem;
+	opacity: 0.9;
 }

@@ -32,10 +32,10 @@ const Weather = () => {
 	return (
 		<div>
 			<div className="vanta">
-				<Vanta />
+				<Vanta city={city} />
 			</div>
 			<div className="weather-main">
-				<div className=" form-outline  pt-4  ">
+				<div className=" form-outline  pt-4 mt-4" id="form">
 					<input
 						value={city}
 						type="text"
@@ -51,9 +51,9 @@ const Weather = () => {
 					<Search onclick={handleSearch} />
 
 					<MicroSearch setCity={setCity} setData={setData} />
-				</div>
 
-				<ListWeather data={data} />
+					<ListWeather data={data} />
+				</div>
 			</div>
 		</div>
 	);
