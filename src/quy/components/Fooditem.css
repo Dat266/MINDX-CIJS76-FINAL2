@@ -54,3 +54,18 @@
     font-weight: bold; 
     font-family: serif;
 }
+.fooditem-input{
+    position: absolute;
+    top: 47px;
+    left: 542px;
+    width: 100px;
+}
+.fooditem-button{
+    position: absolute;
+    top: 47px;
+    left: 650px;
+    width: 32px;
+    border: 1px solid;
+    border-radius: 6px;
+
+}

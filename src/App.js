@@ -12,6 +12,8 @@ import { Signup } from "./quy/components/Signup";
 import { useContext } from "react";
 import { TdeeContext } from "./quy/context/Context";
 import { Calo } from "./quy/components/Calo";
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
 function App() {
   const tdee = useContext(TdeeContext);
   const [city, setCity] = useState("");
@@ -24,6 +26,11 @@ function App() {
       url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=ec36e374709a52512f4459ac354307d8`,
     });
   };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/");
+  }, [tdee.logged]);
 
   return (
     <div className="App">
