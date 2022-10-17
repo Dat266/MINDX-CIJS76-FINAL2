@@ -1,30 +1,32 @@
-import axios from "axios";
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
+import { useContext } from "react";
 import "./App.css";
-import Login from "./auth/login";
-import Register from "./auth/register";
-import Header from "./components/Layout/Header";
-
+import Weather from "./components/Weather";
+import { Calo } from "./quy/components/Calo";
+import { Home } from "./quy/components/Home";
+import { Navbar } from "./quy/components/Navbar";
+import { Signin } from "./quy/components/Signin";
+import { Signup } from "./quy/components/Signup";
+import { Tdee } from "./quy/components/Tdee";
+import { TdeeContext } from "./quy/context/Context";
 function App() {
-  const [city, setCity] = useState("");
-
-  const hanldeMicro = async () => {
-    const cityName = city.replace(/\s/g, "");
-
-    const res = await axios({
-      method: "GET",
-      url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=ec36e374709a52512f4459ac354307d8`,
-    });
-  };
+  const tdee = useContext(TdeeContext);
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
+      {tdee.logged && <Navbar />}
+      <Signin />
+      <Signup />
+
       <Routes>
-        <Route path="/auth/login" element={<Login />} />
-        <Route path="/auth/register" element={<Register />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/tdee" element={<Tdee />} />
+        <Route path="/calo" element={<Calo />} />
+        <Route path="/weather" element={<Weather />} />
+        {/* <Route path="/auth/login" element={<Login />} />
+        <Route path="/auth/register" element={<Register />} /> */}
       </Routes>
     </div>
   );
