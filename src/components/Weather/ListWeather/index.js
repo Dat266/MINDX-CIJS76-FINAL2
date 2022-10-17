@@ -9,6 +9,7 @@ const ListWeather = ({ data }) => {
 			<h1>
 				{data?.name}, {data?.sys?.country}
 			</h1>
+			{/*  eslint-disable-next-line jsx-a11y/alt-text */}
 			<img src={url} style={{ marginRight: "1rem" }} />
 			<h1>{Math.ceil(data?.main?.temp)}°C</h1>
 			<p>Thời tiết: {data?.weather?.[0]?.main}</p>

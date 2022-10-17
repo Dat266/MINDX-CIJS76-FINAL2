@@ -5,6 +5,8 @@ import RINGS from "vanta/dist/vanta.rings.min.js";
 import CELLS from "vanta/dist/vanta.cells.min.js";
 import NET from "vanta/dist/vanta.net.min.js";
 
+
+
 const initVanta = (vantaRef) => ({
 	el: vantaRef.current,
 	THREE: THREE,
@@ -26,13 +28,14 @@ class Vanta extends React.Component {
 		super();
 		this.vantaRef = React.createRef();
 	}
+
 	componentDidMount() {
 		this.vantaEffect = RINGS(initVanta(this.vantaRef));
 	}
 
 	componentDidUpdate(prev) {
 		console.log(prev);
-		if (prev.city != this.props.city) {
+		if (prev.city !== this.props.city) {
 			if (this.props.city.includes("màu 1")) {
 				this.vantaEffect = CLOUDS(initVanta(this.vantaRef));
 			}
@@ -53,10 +56,13 @@ class Vanta extends React.Component {
 			this.vantaEffect.destroy();
 		}
 	}
+
 	render() {
+
 		return (
-			<div style={{ height: "100vh", width: "100%" }} ref={this.vantaRef}></div>
+			<div className="vanta" style={{ height: "100vh", width: "100%" }} ref={this.vantaRef}></div>
 		);
+		
 	}
 }
 
