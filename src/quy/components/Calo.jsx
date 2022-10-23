@@ -2,6 +2,9 @@ import React from "react";
 import "./Calo.css";
 import { useState } from "react";
 import { Fooditem } from "./Fooditem";
+import { Chart as ChartJs, Tooltip, Title, ArcElement, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+ChartJs.register(Tooltip, Title, ArcElement, Legend);
 
 export const Calo = () => {
   const menu = [
@@ -310,10 +313,30 @@ export const Calo = () => {
       calo: "43",
     },
   ];
+  const [calocurrent, setCalocurrent] = useState(0);
+  const [proteintotal, setProteintotal] = useState(0);
+  const [carbtotal, setCarbtotal] = useState(0);
+  const [fattotal, setFattotal] = useState(0);
+  const [proteinpercent, setProteinpercent] = useState(60);
+  const [carbpercent, setCarbpercent] = useState(30);
+  const [fatpercent, setFatpercent] = useState(10);
+  const [datachart, setDatachart] = useState({
+    datasets: [
+      {
+        data: [proteinpercent, carbpercent, fatpercent],
+        backgroundColor: ["#ff0000b5", "#d1ff00b5", "#00fffab5"],
+        borderColor: "transparent",
+      },
+    ],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: ["Protein", "Tinh Bột", "Chất Béo"],
+  });
   const [searchfood, setSearchfood] = useState("");
   const handleSearchfoodChange = (e) => {
     setSearchfood(e.target.value);
   };
+
   return (
     <div className="calo-ctn">
       <div className="calo-menu">
@@ -344,8 +367,27 @@ export const Calo = () => {
               carb={item.carb}
               fat={item.fat}
               calo={item.calo}
+              calocurrent={calocurrent}
+              setCalocurrent={setCalocurrent}
+              proteintotal={proteintotal}
+              carbtotal={carbtotal}
+              fattotal={fattotal}
+              setProteintotal={setProteintotal}
+              setCarbtotal={setCarbtotal}
+              setFattotal={setFattotal}
+              carbpercent={carbpercent}
+              setCarbpercent={setCarbpercent}
+              fatpercent={fatpercent}
+              setFatpercent={setFatpercent}
+              proteinpercent={proteinpercent}
+              setProteinpercent={setProteinpercent}
+              setDatachart={setDatachart}
             />
           ))}
+      </div>
+      <div className="chart">
+        <Doughnut data={datachart} />
+        <div className="calocurrent-text">{calocurrent.toFixed(1)}</div>
       </div>
     </div>
   );

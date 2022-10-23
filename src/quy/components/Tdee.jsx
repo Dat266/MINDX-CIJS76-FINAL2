@@ -77,6 +77,7 @@ export const Tdee = () => {
             Tuổi:{" "}
           </label>
           <input
+            className="tdee-cal-input"
             type="number"
             id="age"
             min="0"
@@ -91,6 +92,7 @@ export const Tdee = () => {
             Cân Nặng(kg):{" "}
           </label>
           <input
+            className="tdee-cal-input"
             type="number"
             id="weight"
             min="0"
@@ -106,6 +108,7 @@ export const Tdee = () => {
             Chiều Cao(cm):{" "}
           </label>
           <input
+            className="tdee-cal-input"
             type="number"
             id="height"
             min="0"

@@ -10,6 +10,11 @@ export const Signin = () => {
         <div
           className="signin-container"
           style={{ display: tdee.signindisplay }}
+          onKeyUp={(e) => {
+            if (e.code === "Enter") {
+              tdee.Signinbtn();
+            }
+          }}
         >
           <div className="text1">Sign-in Here</div>
           <div

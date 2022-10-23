@@ -12,6 +12,19 @@ import { Tdee } from "./quy/components/Tdee";
 import { TdeeContext } from "./quy/context/Context";
 function App() {
   const tdee = useContext(TdeeContext);
+import { Calo } from "./quy/components/Calo";
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
+function App() {
+  const tdee = useContext(TdeeContext);
+  const [city, setCity] = useState("");
+
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("/");
+  }, [tdee.logged]);
 
   return (
     <div className="App">

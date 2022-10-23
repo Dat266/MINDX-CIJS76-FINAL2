@@ -11,6 +11,11 @@ export const Signup = () => {
         <div
           className="signup-container"
           style={{ display: tdee.signupdisplay }}
+          onKeyUp={(e) => {
+            if (e.code === "Enter") {
+              tdee.Signupbtn();
+            }
+          }}
         >
           <div className="text1" style={{ color: "#1b7870" }}>
             Sign-up Here
