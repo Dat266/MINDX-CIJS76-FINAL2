@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./App.css";
 import Weather from "./components/Weather";
 import { Calo } from "./quy/components/Calo";
@@ -10,26 +10,36 @@ import { Signin } from "./quy/components/Signin";
 import { Signup } from "./quy/components/Signup";
 import { Tdee } from "./quy/components/Tdee";
 import { TdeeContext } from "./quy/context/Context";
+
+import { useNavigate } from "react-router";
+
 function App() {
-  const tdee = useContext(TdeeContext);
+    const tdee = useContext(TdeeContext);
+    const [city, setCity] = useState("");
 
-  return (
-    <div className="App">
-      {/* <Header /> */}
-      {tdee.logged && <Navbar />}
-      <Signin />
-      <Signup />
+    const navigate = useNavigate();
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/tdee" element={<Tdee />} />
-        <Route path="/calo" element={<Calo />} />
-        <Route path="/weather" element={<Weather />} />
-        {/* <Route path="/auth/login" element={<Login />} />
+    useEffect(() => {
+        navigate("/");
+    }, [tdee.logged]);
+
+    return (
+        <div className="App">
+            {/* <Header /> */}
+            {tdee.logged && <Navbar />}
+            <Signin />
+            <Signup />
+
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/tdee" element={<Tdee />} />
+                <Route path="/calo" element={<Calo />} />
+                <Route path="/weather" element={<Weather />} />
+                {/* <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} /> */}
-      </Routes>
-    </div>
-  );
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

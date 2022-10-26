@@ -22,8 +22,9 @@
     justify-content: space-around;
     font-weight: bold;
 }
-input{
+.tdee-cal-input{
     border-radius: 5px;
+    border: 1px solid #000;
 }
 .tdee-define{
     width: 407px;

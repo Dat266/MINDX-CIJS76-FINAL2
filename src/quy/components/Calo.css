@@ -28,3 +28,30 @@
     FONT-FAMILY: system-ui;
     
 }
+.chart{
+  
+    /* background-color: #f9dcdcc4; */
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    top: 15%;
+    left: 60%;
+    padding: 16px;
+    border-radius: 15px;
+    
+
+}
+.calocurrent-text{
+    font-size: 61px;
+    position: absolute;
+    top: 45%;
+    left: 38%;
+    color: green;
+    text-align: center;
+    width: 183px;
+    height: 100px;
+}
+.input::placeholder{
+    color: #000;
+
+}
