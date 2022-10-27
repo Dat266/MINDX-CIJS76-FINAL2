@@ -19,14 +19,44 @@ function TdeeProvider({ children }) {
   const [safeMinCalories, setSafeMinCalories] = useState(0);
   const [signindisplay, setSignindisplay] = useState("block");
   const [signupdisplay, setSignupdisplay] = useState("");
-  const [emailsigninvalue, setEmailsigninvalue] = useState("block");
-  const [passwordsigninvalue, setPasswordsigninvalue] = useState("block");
+  const [emailsigninvalue, setEmailsigninvalue] = useState("");
+  const [passwordsigninvalue, setPasswordsigninvalue] = useState("");
   const [emailsignupvalue, setEmailsignupvalue] = useState("");
   const [passwordsignupvalue, setPasswordsignupvalue] = useState("");
   const [message, setMessage] = useState("");
   const [messagedisplay, setMessagedisplay] = useState("none");
   const [messagecolor, setMessagecolor] = useState("");
   const [logged, setLogged] = useState(false);
+  const [coloricon, setColoricon] = useState("white");
+  const [accountname, setAccountname] = useState("");
+  const [accountnamecurrent, setAccountnamecurrent] = useState("");
+  const [servings, setServings] = useState([]);
+  // st
+  const [calocurrent, setCalocurrent] = useState(0);
+  const [proteintotal, setProteintotal] = useState(0);
+  const [carbtotal, setCarbtotal] = useState(0);
+  const [fattotal, setFattotal] = useState(0);
+  const [proteinpercent, setProteinpercent] = useState(60);
+  const [carbpercent, setCarbpercent] = useState(30);
+  const [fatpercent, setFatpercent] = useState(10);
+  const [datachart, setDatachart] = useState({
+    datasets: [
+      {
+        data: [proteinpercent, carbpercent, fatpercent],
+        backgroundColor: ["#ff0000b5", "#d1ff00b5", "#00fffab5"],
+        borderColor: "transparent",
+        options: {
+          scales: {
+            pointLabels: { fontSize: 30 },
+          },
+        },
+      },
+    ],
+
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: ["Protein", "Tinh Bột", "Chất Béo"],
+  });
+  // end
 
   const handleEmailSigninValueChange = (e) => {
     setEmailsigninvalue(e.target.value);
@@ -94,13 +124,19 @@ function TdeeProvider({ children }) {
       setMessagecolor("rgb(76, 218, 76)");
       setEmailsigninvalue("");
       setPasswordsigninvalue("");
+      setAccountname(emailsigninvalue);
 
       setTimeout(() => {
         setSignindisplay("none");
+        setMessagedisplay("none");
+        localStorage.setItem("logged", true);
+        localStorage.setItem("accurrent", emailsigninvalue);
+
         setLogged(true);
       }, 1000);
     }
   };
+
   const value = {
     submit,
     setSubmit,
@@ -153,6 +189,31 @@ function TdeeProvider({ children }) {
     Signinsubbtn,
     Signupsubbtn,
     logged,
+    setLogged,
+    coloricon,
+    setColoricon,
+    accountname,
+    setAccountname,
+    servings,
+    setServings,
+    setAccountnamecurrent,
+    accountnamecurrent,
+    setCalocurrent,
+    calocurrent,
+    setProteintotal,
+    proteintotal,
+    setCarbtotal,
+    carbtotal,
+    setFattotal,
+    fattotal,
+    proteinpercent,
+    setProteinpercent,
+    setCarbpercent,
+    carbpercent,
+    setFatpercent,
+    fatpercent,
+    setDatachart,
+    datachart,
   };
   return <TdeeContext.Provider value={value}>{children}</TdeeContext.Provider>;
 }

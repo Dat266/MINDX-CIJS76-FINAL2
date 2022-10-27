@@ -28,18 +28,57 @@
     FONT-FAMILY: system-ui;
     
 }
+.chart-servings-container{
+    position: relative;
+    width: 700px;
+    height: 700px;
+    left: 60%;
+    top: 15%;
+    perspective: 1000;
+}
+.swap.chart-servings{
+    transform:rotateY(180deg);
+}
+
+.chart-servings{
+    position: relative;
+    width: 700px;
+    height: 700px;
+    transition: 0.6s;
+	transform-style: preserve-3d;
+    
+}
+
 .chart{
   
     /* background-color: #f9dcdcc4; */
     width: 700px;
     height: 700px;
     position: absolute;
-    top: 15%;
-    left: 60%;
+    /* top: 15%; */
+    /* left: 60%; */
     padding: 16px;
     border-radius: 15px;
-    
+    backface-visibility: hidden;
 
+}
+.servings{
+    background-color: #f9dcdcc4;
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    /* top: 15%; */
+    /* left: 60%; */
+    padding: 16px;
+    border-radius: 15px;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.servings::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
 }
 .calocurrent-text{
     font-size: 61px;
@@ -54,4 +93,39 @@
 .input::placeholder{
     color: #000;
 
+}
+.swap-btn{
+    position: absolute;
+    top:5px;
+    left:5px;
+    width: 50px;
+    height: 50px;
+    /* background-color: #bdccd8; */
+    border-radius: 5px;
+    z-index: 10;
+}
+.swap-btn >i::before{
+    font-size: 33px;
+    color: white;
+    cursor: pointer;
+}
+.servings-title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.save-btn{
+    background-color: aqua;
+    width: 60px;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 2px;
+    margin-left: 44%;
+}
+.save-btn:hover{
+scale: 1.1;
+opacity: 0.7;
+cursor: pointer;
 }

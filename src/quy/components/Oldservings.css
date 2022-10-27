@@ -1,0 +1,23 @@
+.oldservings-ctn{
+    background-image: url('../img/korean-dish-with-copy-space-2210x1475.jpg');
+    background-size: cover;
+  height: 100vh;
+  width: 100%;
+}
+.oldservings{
+    background-color: #f9dcdcc4;
+    width: 700px;
+    height: 700px;
+    position: absolute;
+    top: 15%; 
+    left: 60%;
+    padding: 16px;
+    border-radius: 15px;
+    
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.oldservings::-webkit-scrollbar {
+    width: 0 !important;
+    display: none;
+}

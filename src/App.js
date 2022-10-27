@@ -14,6 +14,8 @@ import { TdeeContext } from "./quy/context/Context";
 import { Calo } from "./quy/components/Calo";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
+import { Account } from "./quy/components/Account";
+import { Oldservings } from "./quy/components/Oldservings";
 function App() {
   const tdee = useContext(TdeeContext);
   const [city, setCity] = useState("");
@@ -27,6 +29,45 @@ function App() {
     });
   };
   const navigate = useNavigate();
+  // start
+  // function updatelogged() {
+  //   const ac = localStorage.getItem("logged");
+  //   if (ac) {
+  //     if (ac === "true") {
+  //       tdee.setLogged(true);
+  //       // console.log("signindisplaynone");
+  //       // tdee.setAccountname(ac.email);
+  //       //
+  //       var userlocal = localStorage.getItem("accurrent");
+  //       tdee.setAccountname(userlocal);
+  //       tdee.setColoricon("white");
+  //       // console.log(userlocal);
+  //       //
+  //       tdee.setSignindisplay("none");
+  //     } else {
+  //       tdee.setLogged(false);
+  //     }
+  //   }
+  // }
+  // updatelogged();
+  // end
+  useEffect(() => {
+    const ac = localStorage.getItem("logged");
+    if (ac) {
+      if (ac === "true") {
+        tdee.setLogged(true);
+
+        var userlocal = localStorage.getItem("accurrent");
+        tdee.setAccountname(userlocal);
+        tdee.setColoricon("white");
+
+        tdee.setSignindisplay("none");
+      } else {
+        tdee.setLogged(false);
+      }
+    }
+  }, [tdee.logged]);
+  //
 
   useEffect(() => {
     navigate("/");
@@ -36,6 +77,7 @@ function App() {
     <div className="App">
       {/* <Header /> */}
       {tdee.logged && <Navbar />}
+      {tdee.logged && <Account />}
       <Signin />
       <Signup />
 
@@ -44,6 +86,7 @@ function App() {
         <Route path="/tdee" element={<Tdee />} />
         <Route path="/calo" element={<Calo />} />
         <Route path="/weather" element={<Weather />} />
+        <Route path="/oldservings" element={<Oldservings />} />
         {/* <Route path="/auth/login" element={<Login />} />
         <Route path="/auth/register" element={<Register />} /> */}
       </Routes>

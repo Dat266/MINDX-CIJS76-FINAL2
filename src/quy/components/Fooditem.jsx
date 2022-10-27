@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Fooditem.css";
+import { v4 as uuidv4 } from "uuid";
 export const Fooditem = ({
   path,
   text,
@@ -22,19 +23,34 @@ export const Fooditem = ({
   proteinpercent,
   setProteinpercent,
   setDatachart,
+  setServings,
+  servings,
 }) => {
+  const [inputfooditem, setInputfooditem] = useState(100);
+  const handleInputfooditem = (e) => {
+    setInputfooditem(e.target.value);
+  };
   const setcalo = (path, text, protein, carb, fat, calo) => {
     setCalocurrent((calocurrent += Number((inputfooditem / 100) * calo)));
     setProteintotal((proteintotal += Number((inputfooditem / 100) * protein)));
     setCarbtotal((carbtotal += Number((inputfooditem / 100) * carb)));
     setFattotal((fattotal += Number((inputfooditem / 100) * fat)));
 
-    // setCarbpercent((carbtotal / (proteintotal + carbtotal + fattotal)) * 100);
-    // setFatpercent((fattotal / (proteintotal + carbtotal + fattotal)) * 100);
-
-    // setProteinpercent(
-    //   (proteintotal / (proteintotal + carbtotal + fattotal)) * 100
-    // );
+    // them thuc don-start
+    let food1 = {
+      path,
+      text,
+      protein,
+      carb,
+      fat,
+      calo,
+      inputfooditem,
+      id: uuidv4(),
+    };
+    // console.log(food1);
+    // setServings([...servings, food1]);
+    servings.push(food1);
+    // them thuc don-end
 
     setDatachart({
       datasets: [
@@ -55,10 +71,7 @@ export const Fooditem = ({
     // console.log(proteinpercent, carbpercent, fatpercent);
     // console.log((proteintotal / (proteintotal + carbtotal + fattotal)) * 100);
   };
-  const [inputfooditem, setInputfooditem] = useState(100);
-  const handleInputfooditem = (e) => {
-    setInputfooditem(e.target.value);
-  };
+
   // parseFloat(tdee.bmi.toFixed(1))
   return (
     <div className="fooditem-ctn">

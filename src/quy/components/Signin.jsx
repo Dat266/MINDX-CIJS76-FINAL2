@@ -31,6 +31,7 @@ export const Signin = () => {
               id="email1"
               className="signin-input"
               placeholder="Enter username here"
+              value={tdee.emailsigninvalue}
               onChange={tdee.handleEmailSigninValueChange}
               style={{
                 marginTop: tdee.messagedisplay === "block" ? "20px" : "",
@@ -44,6 +45,7 @@ export const Signin = () => {
               id="password1"
               className="signin-input"
               placeholder="Enter password here"
+              value={tdee.passwordsigninvalue}
               onChange={tdee.handlePasswordSigninValueChange}
             />
           </div>
