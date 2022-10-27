@@ -1,0 +1,71 @@
+.fooditem-ctn{
+    width: 80%;
+    height: 112px;
+    background-color: rgba(131 131 131 / 70%);
+    border-radius: 15px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.food-img{
+    width: 138px;
+    border-radius: 10px;
+    position: absolute;
+    top: 11px;
+    left: 12px;
+
+}
+.fooditem-text{
+    position: absolute;
+    top: 11px;
+    left: 175px;
+    font-size: 23px;
+    font-weight: bold;
+
+}
+.fooditem-protein{
+    position: absolute;
+    top: 11px;
+    left: 381px;
+    font-size: 21px;
+    font-weight: bold;
+    font-family: serif;
+}
+.fooditem-carb{
+ position: absolute;
+    top: 40px;
+    left: 381px;
+    font-size: 21px;
+    font-weight: bold;
+    font-family: serif;
+}
+.fooditem-fat{
+    position: absolute;
+    top: 70px;
+    left: 381px;
+    font-size: 21px;
+    font-weight: bold; 
+    font-family: serif;
+}
+.fooditem-calo{
+    position: absolute;
+    top: 47px;
+    left: 217px;
+    font-size: 21px;
+    font-weight: bold; 
+    font-family: serif;
+}
+.fooditem-input{
+    position: absolute;
+    top: 47px;
+    left: 542px;
+    width: 100px;
+}
+.fooditem-button{
+    position: absolute;
+    top: 47px;
+    left: 650px;
+    width: 32px;
+    border: 1px solid;
+    border-radius: 6px;
+
+}

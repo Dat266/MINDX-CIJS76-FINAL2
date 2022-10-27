@@ -1,0 +1,88 @@
+.signin-container{
+    
+    position: absolute;
+    width: 400px;
+    height: 480px;
+    background-color:rgb(0 0 0 / 74%);
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    
+}
+.message-error.message-hidden{
+    display: none;
+}
+.message{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+    font-weight: bold;
+}
+.text1{
+    width: 300px;
+    height: 40px;
+    font-size: 24px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 48px;
+    font-weight: 800;
+    color: #ff7200;
+    font-family: sans-serif;
+
+}
+.signin-item > input{
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+::placeholder{
+    color: #fff;
+}
+.text2{
+    width: 300px;
+    height: 40px;
+    font-size: 24px;
+    background-color: #ff7200;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 48px;
+    font-weight: 800;
+    color: #000;
+    font-family: sans-serif;
+}
+.text2:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+.text3{
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+.text4 a{
+    
+    margin-right: 7px;
+    text-decoration: none;
+    color: #ff7200;
+
+}
+.signin-input{
+    width: 300px;
+    height: 40px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 40px;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    border-bottom:2px solid #ff7200;
+}
