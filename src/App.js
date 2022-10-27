@@ -1,56 +1,26 @@
-import axios from "axios";
-import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
+import { useContext, useEffect } from "react";
 import "./App.css";
 import Weather from "./components/Weather";
+import { Calo } from "./quy/components/Calo";
 import { Home } from "./quy/components/Home";
 import { Navbar } from "./quy/components/Navbar";
-import { Tdee } from "./quy/components/Tdee";
 import { Signin } from "./quy/components/Signin";
 import { Signup } from "./quy/components/Signup";
-import { useContext } from "react";
+import { Tdee } from "./quy/components/Tdee";
 import { TdeeContext } from "./quy/context/Context";
-import { Calo } from "./quy/components/Calo";
+
 import { useNavigate } from "react-router";
-import { useEffect } from "react";
+
 import { Account } from "./quy/components/Account";
 import { Oldservings } from "./quy/components/Oldservings";
+
 function App() {
   const tdee = useContext(TdeeContext);
-  const [city, setCity] = useState("");
 
-  const hanldeMicro = async () => {
-    const cityName = city.replace(/\s/g, "");
-
-    const res = await axios({
-      method: "GET",
-      url: `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=ec36e374709a52512f4459ac354307d8`,
-    });
-  };
   const navigate = useNavigate();
-  // start
-  // function updatelogged() {
-  //   const ac = localStorage.getItem("logged");
-  //   if (ac) {
-  //     if (ac === "true") {
-  //       tdee.setLogged(true);
-  //       // console.log("signindisplaynone");
-  //       // tdee.setAccountname(ac.email);
-  //       //
-  //       var userlocal = localStorage.getItem("accurrent");
-  //       tdee.setAccountname(userlocal);
-  //       tdee.setColoricon("white");
-  //       // console.log(userlocal);
-  //       //
-  //       tdee.setSignindisplay("none");
-  //     } else {
-  //       tdee.setLogged(false);
-  //     }
-  //   }
-  // }
-  // updatelogged();
-  // end
+
   useEffect(() => {
     const ac = localStorage.getItem("logged");
     if (ac) {
@@ -68,7 +38,6 @@ function App() {
     }
   }, [tdee.logged]);
   //
-
   useEffect(() => {
     navigate("/");
   }, [tdee.logged]);

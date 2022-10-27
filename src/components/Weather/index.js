@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MicroSearch from "../MicroSearch";
 import { Search } from "../Resources/Icon";
 import ListWeather from "./ListWeather";
@@ -10,6 +10,8 @@ const Weather = () => {
 	const [search, setSearch] = useState("hai phong");
 	const [data, setData] = useState({});
 
+
+	//lấy api weathher
 	useEffect(() => {
 		async function fetchApi() {
 			const cityName = search?.replace(/\s/g, "");
@@ -23,17 +25,17 @@ const Weather = () => {
 		fetchApi();
 	}, [search]);
 
+	// xử lí tìm kiếm thành phố
 	const handleSearch = () => {
 		console.log(data);
 		setSearch(city);
 		setCity("");
 	};
 
+	
 	return (
-		<div>
-			<div className="vanta">
-				<Vanta city={city} />
-			</div>
+		<div className="main">
+			<Vanta city={city} />
 			<div className="weather-main">
 				<div className=" form-outline  pt-4 mt-4" id="form">
 					<input
